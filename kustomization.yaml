@@ -1,0 +1,6 @@
+generatorOptions:
+  disableNameSuffixHash: true
+configMapGenerator:
+  - name: compose-values
+    files:
+      - ./app.compose
