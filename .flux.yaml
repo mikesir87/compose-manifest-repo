@@ -1,0 +1,17 @@
+version: 1
+commandUpdated:
+  generators:
+  - command: |
+      cat <<EOF
+      apiVersion: helm.fluxcd.io/v1
+      kind: HelmRelease
+      metadata:
+        name: app
+      spec:
+        chart:
+          repository: https://charts.mikesir87.io
+          name: compose-deployer
+          version: 0.1.3
+        values:
+      $(find . -name "app.compose" -exec sed 's/^/    /' {} +)
+      EOF
